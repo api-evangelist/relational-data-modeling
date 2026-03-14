@@ -1,0 +1,16 @@
+name: Relational Data Modeling
+description: A database design approach that organizes data into tables (relations)
+  with rows and columns, establishing relationships between tables through keys to
+  ensure data integrity and minimize redundancy. It is used across a range of industries
+  and technical contexts to improve efficiency and outcomes.
+url: https://en.wikipedia.org/wiki/Relational_model
+tags:
+- Database Design
+- Data Architecture
+- SQL
+- Normalization
+- Entity Relationship
+created: '2025'
+modified: '2025'
+apis: []
+common: []
