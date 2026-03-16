@@ -1,16 +1,22 @@
+aid: relational-data-modeling
 name: Relational Data Modeling
 description: A database design approach that organizes data into tables (relations)
   with rows and columns, establishing relationships between tables through keys to
   ensure data integrity and minimize redundancy. It is used across a range of industries
   and technical contexts to improve efficiency and outcomes.
-url: https://en.wikipedia.org/wiki/Relational_model
+type: Index
+url: https://raw.githubusercontent.com/api-evangelist/relational-data-modeling/refs/heads/main/apis.yml
 tags:
 - Database Design
 - Data Architecture
 - SQL
 - Normalization
 - Entity Relationship
-created: '2025'
-modified: '2025'
+created: '2025-01-01'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 apis: []
 common: []
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
