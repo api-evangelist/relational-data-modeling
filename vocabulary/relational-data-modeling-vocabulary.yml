@@ -1,0 +1,104 @@
+title: Relational Data Modeling Vocabulary
+description: Core terms and concepts used in relational database design and data modeling.
+version: 1.0.0
+modified: '2026-05-02'
+terms:
+  - term: Relation
+    definition: >-
+      A mathematical set of tuples with named attributes. In relational databases,
+      a relation is represented as a table with rows and columns.
+
+  - term: Entity
+    definition: >-
+      A real-world object or concept that is represented as a table (relation) in a
+      relational data model.
+
+  - term: Attribute
+    definition: >-
+      A property or characteristic of an entity, represented as a column in a
+      relational table.
+
+  - term: Primary Key
+    definition: >-
+      A column or set of columns whose values uniquely identify each row in a table.
+      A primary key cannot contain NULL values and must be unique.
+
+  - term: Foreign Key
+    definition: >-
+      A column or set of columns in one table that references the primary key of another
+      table, establishing a relationship between the two tables.
+
+  - term: Entity-Relationship Diagram (ERD)
+    definition: >-
+      A visual representation of entities, their attributes, and the relationships between
+      entities in a data model.
+
+  - term: Normalization
+    definition: >-
+      The process of organizing a relational database to reduce data redundancy and
+      improve data integrity by applying a series of normal forms.
+
+  - term: First Normal Form (1NF)
+    definition: >-
+      A relation is in 1NF if every attribute contains only atomic (indivisible) values
+      and each row is unique.
+
+  - term: Second Normal Form (2NF)
+    definition: >-
+      A relation is in 2NF if it is in 1NF and every non-key attribute is fully
+      functionally dependent on the entire primary key.
+
+  - term: Third Normal Form (3NF)
+    definition: >-
+      A relation is in 3NF if it is in 2NF and no non-key attribute is transitively
+      dependent on the primary key.
+
+  - term: Boyce-Codd Normal Form (BCNF)
+    definition: >-
+      A stronger version of 3NF where every determinant is a candidate key, eliminating
+      anomalies that 3NF does not address.
+
+  - term: Candidate Key
+    definition: >-
+      A minimal set of attributes that uniquely identifies each tuple in a relation.
+      A table may have multiple candidate keys.
+
+  - term: Surrogate Key
+    definition: >-
+      An artificial, system-generated key (e.g., auto-incrementing integer) used as the
+      primary key when no natural key is suitable.
+
+  - term: Natural Key
+    definition: >-
+      A key formed from real-world attributes that inherently identify a record, such as
+      a social security number or email address.
+
+  - term: Functional Dependency
+    definition: >-
+      A constraint between two sets of attributes in a relation where the value of one
+      attribute (or set) determines the value of another.
+
+  - term: Join
+    definition: >-
+      A SQL operation that combines rows from two or more tables based on related columns,
+      typically through foreign key relationships.
+
+  - term: Referential Integrity
+    definition: >-
+      A database constraint ensuring that foreign key values always refer to existing
+      primary key values in the referenced table.
+
+  - term: DDL (Data Definition Language)
+    definition: >-
+      SQL statements used to define and modify database structures, including CREATE TABLE,
+      ALTER TABLE, DROP TABLE, and CREATE INDEX.
+
+  - term: Cardinality
+    definition: >-
+      The description of the numerical relationship between entities: one-to-one (1:1),
+      one-to-many (1:N), or many-to-many (M:N).
+
+  - term: Schema
+    definition: >-
+      The logical container in a database that organizes and groups related tables, views,
+      and other database objects.

@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/relational-data-modeling/main/json-schema/relational-data-modeling-entity-schema.json",
+  "title": "Relational Data Model Entity",
+  "description": "An entity (table) definition in a relational data model, including its attributes, primary key, and relationships to other entities.",
+  "type": "object",
+  "required": ["name", "attributes"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the entity/table.",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the entity and its purpose."
+    },
+    "schema": {
+      "type": "string",
+      "description": "Database schema the entity belongs to."
+    },
+    "attributes": {
+      "type": "array",
+      "description": "List of attributes (columns) in the entity.",
+      "items": {
+        "$ref": "#/$defs/Attribute"
+      },
+      "minItems": 1
+    },
+    "primaryKey": {
+      "type": "array",
+      "description": "List of attribute names forming the primary key.",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "foreignKeys": {
+      "type": "array",
+      "description": "Foreign key relationships to other entities.",
+      "items": {
+        "$ref": "#/$defs/ForeignKey"
+      }
+    },
+    "indexes": {
+      "type": "array",
+      "description": "Additional indexes on the entity.",
+      "items": {
+        "$ref": "#/$defs/Index"
+      }
+    },
+    "normalForm": {
+      "type": "string",
+      "description": "The highest normal form this entity satisfies.",
+      "enum": ["1NF", "2NF", "3NF", "BCNF", "4NF", "5NF"]
+    }
+  },
+  "$defs": {
+    "Attribute": {
+      "type": "object",
+      "required": ["name", "dataType"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The attribute/column name."
+        },
+        "dataType": {
+          "type": "string",
+          "description": "SQL data type (e.g., VARCHAR, INTEGER, BOOLEAN, DATE)."
+        },
+        "nullable": {
+          "type": "boolean",
+          "description": "Whether the attribute can be NULL.",
+          "default": true
+        },
+        "unique": {
+          "type": "boolean",
+          "description": "Whether the attribute must be unique.",
+          "default": false
+        },
+        "default": {
+          "description": "Default value for the attribute."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the attribute."
+        },
+        "isPrimaryKey": {
+          "type": "boolean",
+          "description": "Whether this attribute is part of the primary key.",
+          "default": false
+        }
+      }
+    },
+    "ForeignKey": {
+      "type": "object",
+      "required": ["columns", "referencedEntity", "referencedColumns"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the foreign key constraint."
+        },
+        "columns": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Columns in this entity forming the foreign key."
+        },
+        "referencedEntity": {
+          "type": "string",
+          "description": "Name of the referenced entity."
+        },
+        "referencedColumns": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Columns in the referenced entity."
+        },
+        "onDelete": {
+          "type": "string",
+          "enum": ["CASCADE", "SET NULL", "RESTRICT", "NO ACTION"],
+          "description": "Action on delete."
+        },
+        "onUpdate": {
+          "type": "string",
+          "enum": ["CASCADE", "SET NULL", "RESTRICT", "NO ACTION"],
+          "description": "Action on update."
+        }
+      }
+    },
+    "Index": {
+      "type": "object",
+      "required": ["name", "columns"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the index."
+        },
+        "columns": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Columns included in the index."
+        },
+        "unique": {
+          "type": "boolean",
+          "description": "Whether the index enforces uniqueness.",
+          "default": false
+        },
+        "type": {
+          "type": "string",
+          "enum": ["BTREE", "HASH", "GIN", "GIST", "BRIN"],
+          "description": "Index implementation type."
+        }
+      }
+    }
+  }
+}
