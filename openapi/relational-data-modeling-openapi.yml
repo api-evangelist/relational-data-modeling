@@ -1,0 +1,382 @@
+openapi: 3.1.0
+info:
+  title: SqlDBM Cloud Data Modeling API
+  description: |
+    SqlDBM is a cloud-based data modeling platform. Its public REST API
+    provides programmatic access to projects, revisions, branches, branch
+    revisions, generated DDL and dbt YAML, diagrams, and ALTER scripts.
+
+    This document models the SqlDBM API as a representative member of the
+    Relational Data Modeling index. Only a subset of endpoints is modeled
+    here, drawn from the public SqlDBM developer documentation at
+    https://developers.sqldbm.com/. See the docs for the full catalog.
+  version: "1.4.0"
+  contact:
+    name: SqlDBM Developer Documentation
+    url: https://developers.sqldbm.com/
+  license:
+    name: SqlDBM Proprietary
+externalDocs:
+  description: SqlDBM developer documentation
+  url: https://developers.sqldbm.com/
+servers:
+  - url: https://api.sqldbm.com
+    description: SqlDBM API server
+tags:
+  - name: Projects
+    description: Manage SqlDBM data modeling projects.
+  - name: Revisions
+    description: Project revisions on the main branch.
+  - name: Branches
+    description: Project branches.
+  - name: BranchRevisions
+    description: Revisions on a project branch.
+  - name: Environments
+    description: Project environments.
+security:
+  - bearerAuth: []
+paths:
+  /projects:
+    get:
+      tags: [Projects]
+      summary: List projects
+      description: Retrieve all projects accessible to the caller.
+      operationId: listProjects
+      responses:
+        '200':
+          description: A list of projects.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+    post:
+      tags: [Projects]
+      summary: Create a project from DDL
+      description: Create a new project by importing a DDL script.
+      operationId: createProject
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, ddl]
+              properties:
+                name:
+                  type: string
+                  description: Project name.
+                ddl:
+                  type: string
+                  description: DDL script used to seed the project.
+                databaseType:
+                  type: string
+                  description: Target database type (e.g. snowflake, postgres).
+      responses:
+        '201':
+          description: Project created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+  /projects/{projectId}/revisions:
+    get:
+      tags: [Revisions]
+      summary: List revisions
+      description: List all revisions on the project's main branch.
+      operationId: listRevisions
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+      responses:
+        '200':
+          description: A list of revisions.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Revision'
+  /projects/{projectId}/revisions/{revisionId}:
+    get:
+      tags: [Revisions]
+      summary: Get a revision
+      description: Retrieve metadata for a specific revision.
+      operationId: getRevision
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+        - $ref: '#/components/parameters/RevisionId'
+      responses:
+        '200':
+          description: Revision details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Revision'
+    post:
+      tags: [Revisions]
+      summary: Create a revision from a specific revision
+      description: Create a new revision based on an existing revision.
+      operationId: createRevisionFromRevision
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+        - $ref: '#/components/parameters/RevisionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ddl:
+                  type: string
+                description:
+                  type: string
+      responses:
+        '201':
+          description: Revision created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Revision'
+  /projects/{projectId}/revisions/last:
+    get:
+      tags: [Revisions]
+      summary: Get the latest revision
+      description: Retrieve the latest revision on the project's main branch.
+      operationId: getLatestRevision
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+      responses:
+        '200':
+          description: Latest revision.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Revision'
+    post:
+      tags: [Revisions]
+      summary: Create a revision from the latest revision
+      description: Create a new revision based on the latest existing revision.
+      operationId: createRevisionFromLatest
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ddl:
+                  type: string
+                description:
+                  type: string
+      responses:
+        '201':
+          description: Revision created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Revision'
+  /projects/{projectId}/branches:
+    get:
+      tags: [Branches]
+      summary: List branches
+      description: List branches for the project.
+      operationId: listBranches
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+      responses:
+        '200':
+          description: A list of branches.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Branch'
+    post:
+      tags: [Branches]
+      summary: Create a branch
+      description: Create a new branch on the project.
+      operationId: createBranch
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties:
+                name:
+                  type: string
+                fromRevisionId:
+                  type: string
+      responses:
+        '201':
+          description: Branch created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Branch'
+  /projects/{projectId}/branches/{branchId}:
+    get:
+      tags: [Branches]
+      summary: Get a branch
+      description: Get details for a project branch.
+      operationId: getBranch
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+        - $ref: '#/components/parameters/BranchId'
+      responses:
+        '200':
+          description: Branch details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Branch'
+  /projects/{projectId}/branches/{branchId}/revisions:
+    get:
+      tags: [BranchRevisions]
+      summary: List branch revisions
+      description: List revisions on a branch.
+      operationId: listBranchRevisions
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+        - $ref: '#/components/parameters/BranchId'
+      responses:
+        '200':
+          description: List of branch revisions.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Revision'
+  /projects/{projectId}/branches/{branchId}/revisions/last/upload-manifest:
+    post:
+      tags: [BranchRevisions]
+      summary: Upload a dbt manifest
+      description: Upload a dbt manifest to the latest revision of a branch.
+      operationId: uploadDbtManifest
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+        - $ref: '#/components/parameters/BranchId'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                manifest:
+                  type: string
+                  format: binary
+                  description: dbt manifest.json file.
+      responses:
+        '202':
+          description: Manifest upload accepted.
+  /projects/{projectId}/environments:
+    get:
+      tags: [Environments]
+      summary: List environments
+      description: List environments configured on the project.
+      operationId: listEnvironments
+      parameters:
+        - $ref: '#/components/parameters/ProjectId'
+      responses:
+        '200':
+          description: A list of environments.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Environment'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: |
+        Bearer token issued from the SqlDBM workspace. See the
+        Authorization section in the SqlDBM developer documentation for
+        details on obtaining and using API credentials.
+  parameters:
+    ProjectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: SqlDBM project identifier.
+    RevisionId:
+      name: revisionId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Revision identifier within the project or branch.
+    BranchId:
+      name: branchId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Branch identifier within the project.
+  schemas:
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        databaseType:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    Revision:
+      type: object
+      properties:
+        id:
+          type: string
+        projectId:
+          type: string
+        branchId:
+          type: string
+        description:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        author:
+          type: string
+    Branch:
+      type: object
+      properties:
+        id:
+          type: string
+        projectId:
+          type: string
+        name:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+    Environment:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
