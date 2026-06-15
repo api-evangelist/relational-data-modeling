@@ -1,0 +1,343 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SqlDBM Cloud Data Modeling API",
+    "version": "1.4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects"
+          },
+          "docs": "Retrieve all projects accessible to the caller."
+        },
+        {
+          "info": {
+            "name": "Create a project from DDL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sqldbm.com/projects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new project by importing a DDL script."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Revisions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List revisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects/:projectId/revisions",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              }
+            ]
+          },
+          "docs": "List all revisions on the project's main branch."
+        },
+        {
+          "info": {
+            "name": "Get a revision",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects/:projectId/revisions/:revisionId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              },
+              {
+                "name": "revisionId",
+                "value": "",
+                "type": "path",
+                "description": "Revision identifier within the project or branch."
+              }
+            ]
+          },
+          "docs": "Retrieve metadata for a specific revision."
+        },
+        {
+          "info": {
+            "name": "Create a revision from a specific revision",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sqldbm.com/projects/:projectId/revisions/:revisionId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              },
+              {
+                "name": "revisionId",
+                "value": "",
+                "type": "path",
+                "description": "Revision identifier within the project or branch."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new revision based on an existing revision."
+        },
+        {
+          "info": {
+            "name": "Get the latest revision",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects/:projectId/revisions/last",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              }
+            ]
+          },
+          "docs": "Retrieve the latest revision on the project's main branch."
+        },
+        {
+          "info": {
+            "name": "Create a revision from the latest revision",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sqldbm.com/projects/:projectId/revisions/last",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new revision based on the latest existing revision."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Branches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List branches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects/:projectId/branches",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              }
+            ]
+          },
+          "docs": "List branches for the project."
+        },
+        {
+          "info": {
+            "name": "Create a branch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sqldbm.com/projects/:projectId/branches",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new branch on the project."
+        },
+        {
+          "info": {
+            "name": "Get a branch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects/:projectId/branches/:branchId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              },
+              {
+                "name": "branchId",
+                "value": "",
+                "type": "path",
+                "description": "Branch identifier within the project."
+              }
+            ]
+          },
+          "docs": "Get details for a project branch."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "BranchRevisions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List branch revisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects/:projectId/branches/:branchId/revisions",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              },
+              {
+                "name": "branchId",
+                "value": "",
+                "type": "path",
+                "description": "Branch identifier within the project."
+              }
+            ]
+          },
+          "docs": "List revisions on a branch."
+        },
+        {
+          "info": {
+            "name": "Upload a dbt manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sqldbm.com/projects/:projectId/branches/:branchId/revisions/last/upload-manifest",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              },
+              {
+                "name": "branchId",
+                "value": "",
+                "type": "path",
+                "description": "Branch identifier within the project."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "manifest",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload a dbt manifest to the latest revision of a branch."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Environments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List environments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects/:projectId/environments",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              }
+            ]
+          },
+          "docs": "List environments configured on the project."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
