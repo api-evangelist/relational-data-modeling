@@ -1,0 +1,43 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: en.wikipedia.org
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep  4 20:06:43 2026 GMT
+  hsts: true
+  hsts_max_age: 106384710
+- host: sqldbm.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  2 00:16:02 2026 GMT
+  hsts: false
+- host: hackolade.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 13 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+domains:
+- domain: wikipedia.org
+  dnssec: false
+  caa:
+  - 0 issue "pki.goog"
+  - 0 iodef "mailto:dns-admin@wikimedia.org"
+  - 0 issue "letsencrypt.org"
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: sqldbm.com
+  dnssec: false
+  caa:
+  - 0 issuewild "awstrust.com"
+  - 0 issuewild "digicert.com; cansignhttpexchanges=yes"
+  - 0 issuewild "letsencrypt.org"
+  - 0 issuewild "pki.goog; cansignhttpexchanges=yes"
+  - 0 issuewild "sectigo.com"
+  - 0 iodef "mailto:internalsecurity@sqldbm.com"
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/relational-data-modeling-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: |-
+    Bearer token issued from the SqlDBM workspace. See the
+    Authorization section in the SqlDBM developer documentation for
+    details on obtaining and using API credentials.
+  sources:
+  - openapi/relational-data-modeling-openapi.yml

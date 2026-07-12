@@ -100,6 +100,12 @@ apis:
         url: https://dbschema.com/
 
 common:
+  - type: VulnerabilityDisclosure
+    url: security/relational-data-modeling-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/relational-data-modeling-domain-security.yml
+  - type: Authentication
+    url: authentication/relational-data-modeling-authentication.yml
   - type: Website
     url: https://en.wikipedia.org/wiki/Relational_model
   - type: Reference
