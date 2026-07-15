@@ -100,6 +100,8 @@ apis:
         url: https://dbschema.com/
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/relational-data-modeling-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/relational-data-modeling-vulnerability-disclosure.yml
   - type: DomainSecurity
