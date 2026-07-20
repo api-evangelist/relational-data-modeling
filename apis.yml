@@ -1,5 +1,6 @@
 aid: relational-data-modeling
 name: Relational Data Modeling
+kind: topic
 description: >-
   Relational data modeling is a database design approach that organizes data into
   tables (relations) with rows and columns, establishing relationships between tables
