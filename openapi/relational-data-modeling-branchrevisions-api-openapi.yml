@@ -1,0 +1,124 @@
+openapi: 3.1.0
+info:
+  title: SqlDBM Cloud Data Modeling Branches BranchRevisions API
+  description: 'SqlDBM is a cloud-based data modeling platform. Its public REST API
+
+    provides programmatic access to projects, revisions, branches, branch
+
+    revisions, generated DDL and dbt YAML, diagrams, and ALTER scripts.
+
+
+    This document models the SqlDBM API as a representative member of the
+
+    Relational Data Modeling index. Only a subset of endpoints is modeled
+
+    here, drawn from the public SqlDBM developer documentation at
+
+    https://developers.sqldbm.com/. See the docs for the full catalog.
+
+    '
+  version: 1.4.0
+  contact:
+    name: SqlDBM Developer Documentation
+    url: https://developers.sqldbm.com/
+  license:
+    name: SqlDBM Proprietary
+servers:
+- url: https://api.sqldbm.com
+  description: SqlDBM API server
+security:
+- bearerAuth: []
+tags:
+- name: BranchRevisions
+  description: Revisions on a project branch.
+paths:
+  /projects/{projectId}/branches/{branchId}/revisions:
+    get:
+      tags:
+      - BranchRevisions
+      summary: List branch revisions
+      description: List revisions on a branch.
+      operationId: listBranchRevisions
+      parameters:
+      - $ref: '#/components/parameters/ProjectId'
+      - $ref: '#/components/parameters/BranchId'
+      responses:
+        '200':
+          description: List of branch revisions.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Revision'
+  /projects/{projectId}/branches/{branchId}/revisions/last/upload-manifest:
+    post:
+      tags:
+      - BranchRevisions
+      summary: Upload a dbt manifest
+      description: Upload a dbt manifest to the latest revision of a branch.
+      operationId: uploadDbtManifest
+      parameters:
+      - $ref: '#/components/parameters/ProjectId'
+      - $ref: '#/components/parameters/BranchId'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                manifest:
+                  type: string
+                  format: binary
+                  description: dbt manifest.json file.
+      responses:
+        '202':
+          description: Manifest upload accepted.
+components:
+  schemas:
+    Revision:
+      type: object
+      properties:
+        id:
+          type: string
+        projectId:
+          type: string
+        branchId:
+          type: string
+        description:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        author:
+          type: string
+  parameters:
+    BranchId:
+      name: branchId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Branch identifier within the project.
+    ProjectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: SqlDBM project identifier.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Bearer token issued from the SqlDBM workspace. See the
+
+        Authorization section in the SqlDBM developer documentation for
+
+        details on obtaining and using API credentials.
+
+        '
+externalDocs:
+  description: SqlDBM developer documentation
+  url: https://developers.sqldbm.com/

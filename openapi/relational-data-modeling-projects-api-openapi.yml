@@ -1,0 +1,113 @@
+openapi: 3.1.0
+info:
+  title: SqlDBM Cloud Data Modeling Branches Projects API
+  description: 'SqlDBM is a cloud-based data modeling platform. Its public REST API
+
+    provides programmatic access to projects, revisions, branches, branch
+
+    revisions, generated DDL and dbt YAML, diagrams, and ALTER scripts.
+
+
+    This document models the SqlDBM API as a representative member of the
+
+    Relational Data Modeling index. Only a subset of endpoints is modeled
+
+    here, drawn from the public SqlDBM developer documentation at
+
+    https://developers.sqldbm.com/. See the docs for the full catalog.
+
+    '
+  version: 1.4.0
+  contact:
+    name: SqlDBM Developer Documentation
+    url: https://developers.sqldbm.com/
+  license:
+    name: SqlDBM Proprietary
+servers:
+- url: https://api.sqldbm.com
+  description: SqlDBM API server
+security:
+- bearerAuth: []
+tags:
+- name: Projects
+  description: Manage SqlDBM data modeling projects.
+paths:
+  /projects:
+    get:
+      tags:
+      - Projects
+      summary: List projects
+      description: Retrieve all projects accessible to the caller.
+      operationId: listProjects
+      responses:
+        '200':
+          description: A list of projects.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+    post:
+      tags:
+      - Projects
+      summary: Create a project from DDL
+      description: Create a new project by importing a DDL script.
+      operationId: createProject
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - ddl
+              properties:
+                name:
+                  type: string
+                  description: Project name.
+                ddl:
+                  type: string
+                  description: DDL script used to seed the project.
+                databaseType:
+                  type: string
+                  description: Target database type (e.g. snowflake, postgres).
+      responses:
+        '201':
+          description: Project created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+components:
+  schemas:
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        databaseType:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Bearer token issued from the SqlDBM workspace. See the
+
+        Authorization section in the SqlDBM developer documentation for
+
+        details on obtaining and using API credentials.
+
+        '
+externalDocs:
+  description: SqlDBM developer documentation
+  url: https://developers.sqldbm.com/

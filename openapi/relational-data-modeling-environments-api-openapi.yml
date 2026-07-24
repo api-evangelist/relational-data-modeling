@@ -1,0 +1,85 @@
+openapi: 3.1.0
+info:
+  title: SqlDBM Cloud Data Modeling Branches Environments API
+  description: 'SqlDBM is a cloud-based data modeling platform. Its public REST API
+
+    provides programmatic access to projects, revisions, branches, branch
+
+    revisions, generated DDL and dbt YAML, diagrams, and ALTER scripts.
+
+
+    This document models the SqlDBM API as a representative member of the
+
+    Relational Data Modeling index. Only a subset of endpoints is modeled
+
+    here, drawn from the public SqlDBM developer documentation at
+
+    https://developers.sqldbm.com/. See the docs for the full catalog.
+
+    '
+  version: 1.4.0
+  contact:
+    name: SqlDBM Developer Documentation
+    url: https://developers.sqldbm.com/
+  license:
+    name: SqlDBM Proprietary
+servers:
+- url: https://api.sqldbm.com
+  description: SqlDBM API server
+security:
+- bearerAuth: []
+tags:
+- name: Environments
+  description: Project environments.
+paths:
+  /projects/{projectId}/environments:
+    get:
+      tags:
+      - Environments
+      summary: List environments
+      description: List environments configured on the project.
+      operationId: listEnvironments
+      parameters:
+      - $ref: '#/components/parameters/ProjectId'
+      responses:
+        '200':
+          description: A list of environments.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Environment'
+components:
+  schemas:
+    Environment:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+  parameters:
+    ProjectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: SqlDBM project identifier.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Bearer token issued from the SqlDBM workspace. See the
+
+        Authorization section in the SqlDBM developer documentation for
+
+        details on obtaining and using API credentials.
+
+        '
+externalDocs:
+  description: SqlDBM developer documentation
+  url: https://developers.sqldbm.com/
