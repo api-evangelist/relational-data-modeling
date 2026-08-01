@@ -1,0 +1,22 @@
+{
+  "provider": "relational-data-modeling",
+  "sources": [
+    "relational-data-modeling-branches-api-openapi.yml",
+    "relational-data-modeling-branchrevisions-api-openapi.yml",
+    "relational-data-modeling-environments-api-openapi.yml",
+    "relational-data-modeling-projects-api-openapi.yml",
+    "relational-data-modeling-revisions-api-openapi.yml"
+  ],
+  "outputs": [
+    "relational-data-modeling-branches-api-openapi.yml",
+    "relational-data-modeling-branchrevisions-api-openapi.yml",
+    "relational-data-modeling-environments-api-openapi.yml",
+    "relational-data-modeling-projects-api-openapi.yml",
+    "relational-data-modeling-revisions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
