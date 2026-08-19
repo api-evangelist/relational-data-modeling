@@ -1,0 +1,218 @@
+{
+  "item": [
+    {
+      "id": "44419130-54a1-47a0-a177-fd32d81706ea",
+      "name": "Projects",
+      "description": {
+        "content": "Manage SqlDBM data modeling projects.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e447cac5-b760-4ac7-bf4c-c350fa4ffb5a",
+          "name": "List projects",
+          "request": {
+            "name": "List projects",
+            "description": {
+              "content": "Retrieve all projects accessible to the caller.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f5ccffe2-a6c1-4279-aca1-2b0d29b40a1e",
+              "name": "A list of projects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"databaseType\": \"string\",\n    \"createdAt\": \"1967-05-21T11:44:43.509Z\",\n    \"updatedAt\": \"1989-11-11T20:53:27.310Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"databaseType\": \"string\",\n    \"createdAt\": \"2001-09-20T20:30:50.761Z\",\n    \"updatedAt\": \"1967-08-14T18:48:01.406Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "edddfba2-777c-4296-806b-f611cd91198e",
+          "name": "Create a project from DDL",
+          "request": {
+            "name": "Create a project from DDL",
+            "description": {
+              "content": "Create a new project by importing a DDL script.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"ddl\": \"<string>\",\n  \"databaseType\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4c593a8c-23f7-4b04-84bc-05a676860303",
+              "name": "Project created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"ddl\": \"<string>\",\n  \"databaseType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"databaseType\": \"string\",\n  \"createdAt\": \"1950-04-13T16:09:00.661Z\",\n  \"updatedAt\": \"2003-06-03T02:39:12.126Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sqldbm.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ce01ecce-40c8-4440-bc87-6e02f6d5d360",
+    "name": "SqlDBM Cloud Data Modeling Branches Projects API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "SqlDBM is a cloud-based data modeling platform. Its public REST API\nprovides programmatic access to projects, revisions, branches, branch\nrevisions, generated DDL and dbt YAML, diagrams, and ALTER scripts.\n\nThis document models the SqlDBM API as a representative member of the\nRelational Data Modeling index. Only a subset of endpoints is modeled\nhere, drawn from the public SqlDBM developer documentation at\nhttps://developers.sqldbm.com/. See the docs for the full catalog.\n\n\nContact Support:\n Name: SqlDBM Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

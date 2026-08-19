@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SqlDBM Cloud Data Modeling Branches Projects API",
+    "version": "1.4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects"
+          },
+          "docs": "Retrieve all projects accessible to the caller."
+        },
+        {
+          "info": {
+            "name": "Create a project from DDL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sqldbm.com/projects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new project by importing a DDL script."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SqlDBM Cloud Data Modeling Branches Environments API",
+    "version": "1.4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Environments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List environments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects/:projectId/environments",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              }
+            ]
+          },
+          "docs": "List environments configured on the project."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

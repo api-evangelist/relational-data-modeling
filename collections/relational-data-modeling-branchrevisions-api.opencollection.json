@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SqlDBM Cloud Data Modeling Branches BranchRevisions API",
+    "version": "1.4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BranchRevisions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List branch revisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects/:projectId/branches/:branchId/revisions",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              },
+              {
+                "name": "branchId",
+                "value": "",
+                "type": "path",
+                "description": "Branch identifier within the project."
+              }
+            ]
+          },
+          "docs": "List revisions on a branch."
+        },
+        {
+          "info": {
+            "name": "Upload a dbt manifest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sqldbm.com/projects/:projectId/branches/:branchId/revisions/last/upload-manifest",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              },
+              {
+                "name": "branchId",
+                "value": "",
+                "type": "path",
+                "description": "Branch identifier within the project."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "manifest",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload a dbt manifest to the latest revision of a branch."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

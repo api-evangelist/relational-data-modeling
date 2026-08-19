@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SqlDBM Cloud Data Modeling Branches API",
+    "version": "1.4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Branches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List branches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects/:projectId/branches",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              }
+            ]
+          },
+          "docs": "List branches for the project."
+        },
+        {
+          "info": {
+            "name": "Create a branch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sqldbm.com/projects/:projectId/branches",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new branch on the project."
+        },
+        {
+          "info": {
+            "name": "Get a branch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects/:projectId/branches/:branchId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              },
+              {
+                "name": "branchId",
+                "value": "",
+                "type": "path",
+                "description": "Branch identifier within the project."
+              }
+            ]
+          },
+          "docs": "Get details for a project branch."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

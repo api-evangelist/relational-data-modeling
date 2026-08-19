@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SqlDBM Cloud Data Modeling Branches Revisions API",
+    "version": "1.4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Revisions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List revisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects/:projectId/revisions",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              }
+            ]
+          },
+          "docs": "List all revisions on the project's main branch."
+        },
+        {
+          "info": {
+            "name": "Get a revision",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects/:projectId/revisions/:revisionId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              },
+              {
+                "name": "revisionId",
+                "value": "",
+                "type": "path",
+                "description": "Revision identifier within the project or branch."
+              }
+            ]
+          },
+          "docs": "Retrieve metadata for a specific revision."
+        },
+        {
+          "info": {
+            "name": "Create a revision from a specific revision",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sqldbm.com/projects/:projectId/revisions/:revisionId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              },
+              {
+                "name": "revisionId",
+                "value": "",
+                "type": "path",
+                "description": "Revision identifier within the project or branch."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new revision based on an existing revision."
+        },
+        {
+          "info": {
+            "name": "Get the latest revision",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sqldbm.com/projects/:projectId/revisions/last",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              }
+            ]
+          },
+          "docs": "Retrieve the latest revision on the project's main branch."
+        },
+        {
+          "info": {
+            "name": "Create a revision from the latest revision",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sqldbm.com/projects/:projectId/revisions/last",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path",
+                "description": "SqlDBM project identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new revision based on the latest existing revision."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

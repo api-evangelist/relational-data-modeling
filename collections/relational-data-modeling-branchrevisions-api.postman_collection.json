@@ -1,0 +1,296 @@
+{
+  "item": [
+    {
+      "id": "76d5b6c9-6769-4c7b-b20f-98cb536e87be",
+      "name": "BranchRevisions",
+      "description": {
+        "content": "Revisions on a project branch.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "619943a3-6281-48ce-a53d-2d7fef845144",
+          "name": "List branch revisions",
+          "request": {
+            "name": "List branch revisions",
+            "description": {
+              "content": "List revisions on a branch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "branches",
+                ":branchId",
+                "revisions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) SqlDBM project identifier."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "branchId",
+                  "description": "(Required) Branch identifier within the project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0036a604-a461-4359-8ae3-8e005f3892d1",
+              "name": "List of branch revisions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "branches",
+                    ":branchId",
+                    "revisions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) SqlDBM project identifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "branchId",
+                      "description": "(Required) Branch identifier within the project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"projectId\": \"string\",\n    \"branchId\": \"string\",\n    \"description\": \"string\",\n    \"createdAt\": \"2009-08-13T22:09:53.614Z\",\n    \"author\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"projectId\": \"string\",\n    \"branchId\": \"string\",\n    \"description\": \"string\",\n    \"createdAt\": \"1981-03-09T05:43:31.860Z\",\n    \"author\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c1f961c-ffc6-4dad-aaa6-a5af41293ae8",
+          "name": "Upload a dbt manifest",
+          "request": {
+            "name": "Upload a dbt manifest",
+            "description": {
+              "content": "Upload a dbt manifest to the latest revision of a branch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "projects",
+                ":projectId",
+                "branches",
+                ":branchId",
+                "revisions",
+                "last",
+                "upload-manifest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) SqlDBM project identifier."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "branchId",
+                  "description": "(Required) Branch identifier within the project."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "manifest",
+                  "type": "file",
+                  "description": "dbt manifest.json file."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0a22da42-6024-4264-b906-d8651c25c6d9",
+              "name": "Manifest upload accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "projects",
+                    ":projectId",
+                    "branches",
+                    ":branchId",
+                    "revisions",
+                    "last",
+                    "upload-manifest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) SqlDBM project identifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "branchId",
+                      "description": "(Required) Branch identifier within the project."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "dbt manifest.json file.",
+                        "type": "text/plain"
+                      },
+                      "key": "manifest",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sqldbm.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "97e0eabb-e548-4fb0-b53c-cc6a6c6b9f61",
+    "name": "SqlDBM Cloud Data Modeling Branches BranchRevisions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "SqlDBM is a cloud-based data modeling platform. Its public REST API\nprovides programmatic access to projects, revisions, branches, branch\nrevisions, generated DDL and dbt YAML, diagrams, and ALTER scripts.\n\nThis document models the SqlDBM API as a representative member of the\nRelational Data Modeling index. Only a subset of endpoints is modeled\nhere, drawn from the public SqlDBM developer documentation at\nhttps://developers.sqldbm.com/. See the docs for the full catalog.\n\n\nContact Support:\n Name: SqlDBM Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}
