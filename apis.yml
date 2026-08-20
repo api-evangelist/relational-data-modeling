@@ -65,6 +65,12 @@ apis:
   tags:
   - NoSQL
   - SQL
+  - JSON-Schema
+  - Schema Design
+  - Multi-Database
+  tags_raw:
+  - NoSQL
+  - SQL
   - JSON Schema
   - Schema Design
   - Multi-Database
@@ -140,6 +146,8 @@ apis:
   description: Manage SqlDBM data modeling projects.
   humanURL: https://sqldbm.com/
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
