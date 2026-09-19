@@ -149,6 +149,8 @@ apis:
   description: Project environments.
   humanURL: https://sqldbm.com/
   tags:
+  - Environment
+  tags_raw:
   - Environments
   properties:
   - type: OpenAPI
