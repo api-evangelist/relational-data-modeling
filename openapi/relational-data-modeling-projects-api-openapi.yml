@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: SqlDBM Cloud Data Modeling Branches Projects API
+  title: SqlDBM Cloud Data Modeling Projects API
   description: 'SqlDBM is a cloud-based data modeling platform. Its public REST API
 
     provides programmatic access to projects, revisions, branches, branch
@@ -14,9 +14,7 @@ info:
 
     here, drawn from the public SqlDBM developer documentation at
 
-    https://developers.sqldbm.com/. See the docs for the full catalog.
-
-    '
+    https://developers.sqldbm.com/. See the docs for the full catalog.'
   version: 1.4.0
   contact:
     name: SqlDBM Developer Documentation

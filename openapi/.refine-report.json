@@ -1,15 +1,11 @@
 {
   "provider": "relational-data-modeling",
   "sources": [
-    "relational-data-modeling-branches-api-openapi.yml",
-    "relational-data-modeling-branchrevisions-api-openapi.yml",
-    "relational-data-modeling-environments-api-openapi.yml",
-    "relational-data-modeling-projects-api-openapi.yml",
-    "relational-data-modeling-revisions-api-openapi.yml"
+    "_original/relational-data-modeling-openapi.yml"
   ],
   "outputs": [
-    "relational-data-modeling-branches-api-openapi.yml",
     "relational-data-modeling-branchrevisions-api-openapi.yml",
+    "relational-data-modeling-branches-api-openapi.yml",
     "relational-data-modeling-environments-api-openapi.yml",
     "relational-data-modeling-projects-api-openapi.yml",
     "relational-data-modeling-revisions-api-openapi.yml"
@@ -17,6 +13,16 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "relational-data-modeling-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "relational-data-modeling-branches-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "relational-data-modeling-branchrevisions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "relational-data-modeling-environments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "relational-data-modeling-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "relational-data-modeling-revisions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
