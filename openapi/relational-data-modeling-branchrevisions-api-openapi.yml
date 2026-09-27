@@ -74,6 +74,21 @@ paths:
         '202':
           description: Manifest upload accepted.
 components:
+  parameters:
+    BranchId:
+      name: branchId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Branch identifier within the project.
+    ProjectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: SqlDBM project identifier.
   schemas:
     Revision:
       type: object
@@ -91,21 +106,6 @@ components:
           format: date-time
         author:
           type: string
-  parameters:
-    BranchId:
-      name: branchId
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Branch identifier within the project.
-    ProjectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
-      description: SqlDBM project identifier.
   securitySchemes:
     bearerAuth:
       type: http

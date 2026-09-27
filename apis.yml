@@ -77,7 +77,7 @@ apis:
   tags:
   - NoSQL
   - SQL
-  - JSON-Schema
+  - JSON Schema
   - Schema Design
   - Multi-Database
   tags_raw:
@@ -86,6 +86,7 @@ apis:
   - JSON Schema
   - Schema Design
   - Multi-Database
+  - JSON-Schema
   properties:
   - type: Documentation
     url: https://hackolade.com/

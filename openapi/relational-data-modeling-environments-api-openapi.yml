@@ -49,6 +49,14 @@ paths:
                 items:
                   $ref: '#/components/schemas/Environment'
 components:
+  parameters:
+    ProjectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: SqlDBM project identifier.
   schemas:
     Environment:
       type: object
@@ -59,14 +67,6 @@ components:
           type: string
         type:
           type: string
-  parameters:
-    ProjectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
-      description: SqlDBM project identifier.
   securitySchemes:
     bearerAuth:
       type: http
