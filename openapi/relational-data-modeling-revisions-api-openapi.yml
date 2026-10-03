@@ -135,21 +135,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Revision'
 components:
-  parameters:
-    RevisionId:
-      name: revisionId
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Revision identifier within the project or branch.
-    ProjectId:
-      name: projectId
-      in: path
-      required: true
-      schema:
-        type: string
-      description: SqlDBM project identifier.
   schemas:
     Revision:
       type: object
@@ -167,6 +152,21 @@ components:
           format: date-time
         author:
           type: string
+  parameters:
+    ProjectId:
+      name: projectId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: SqlDBM project identifier.
+    RevisionId:
+      name: revisionId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Revision identifier within the project or branch.
   securitySchemes:
     bearerAuth:
       type: http
