@@ -95,13 +95,6 @@ paths:
                 $ref: '#/components/schemas/Branch'
 components:
   parameters:
-    BranchId:
-      name: branchId
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Branch identifier within the project.
     ProjectId:
       name: projectId
       in: path
@@ -109,6 +102,13 @@ components:
       schema:
         type: string
       description: SqlDBM project identifier.
+    BranchId:
+      name: branchId
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Branch identifier within the project.
   schemas:
     Branch:
       type: object
