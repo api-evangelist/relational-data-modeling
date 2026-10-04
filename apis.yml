@@ -177,6 +177,9 @@ apis:
   - type: OpenAPI
     url: openapi/relational-data-modeling-revisions-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/relational-data-modeling-capability-edges.yml
+    name: Relational Data Modeling Business Capability Map
   - type: AgenticAccess
     url: agentic-access/relational-data-modeling-agentic-access.yml
   - type: VulnerabilityDisclosure
