@@ -177,6 +177,12 @@ apis:
   - type: OpenAPI
     url: openapi/relational-data-modeling-revisions-api-openapi.yml
 common:
+  - type: Plans
+    url: plans/relational-data-modeling-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/relational-data-modeling-rate-limits.yml
+  - type: FinOps
+    url: finops/relational-data-modeling-finops.yml
   - type: CapabilityMap
     url: capabilities/relational-data-modeling-capability-edges.yml
     name: Relational Data Modeling Business Capability Map
