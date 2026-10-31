@@ -1,4 +1,4 @@
-# Relational Data Modeling (relational-data-modeling)
+# relational-data-modeling
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,124 +64,22 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Relational data modeling is a database design approach that organizes data into tables (relations) with rows and columns, establishing relationships between tables through primary and foreign keys to ensure data integrity and minimize redundancy. This index covers leading platforms, tools, and APIs for relational data modeling including ER diagram tools, schema design platforms, DDL generation services, and database design automation.
+## relational-data-modeling on APIs.io
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/relational-data-modeling/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/relational-data-modeling/refs/heads/main/apis.yml)
+Everything profiled for relational-data-modeling is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/relational-data-modeling/](https://apis.io/providers/relational-data-modeling/)** — or go straight to one of the APIs or properties below.
 
-## Scope
+## API Evangelist rating
 
-- **Type:** Index
+Not yet rated. See [apis.io/providers/relational-data-modeling/](https://apis.io/providers/relational-data-modeling/).
 
-## Tags
+## How this profile is made
 
-- Data Architecture
-- Database Design
-- Entity Relationship
-- Normalization
-- SQL
-- Schema Design
-- Data Modeling
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-## Timestamps
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for relational-data-modeling: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-- **Created:** 2025-01-01
-- **Modified:** 2026-05-02
+## Open an issue
 
-## APIs
-
-### SqlDBM Cloud Data Modeling Platform
-
-SqlDBM is a cloud-based data modeling platform focused on ER design-to-DDL workflows with collaborative reviews. It supports common relational database targets and helps standardize naming conventions, constraints, and indexes through model-driven design.
-
-- **Human URL:** [https://sqldbm.com/](https://sqldbm.com/)
-
-#### Tags
-
-- SQL
-- ER Diagrams
-- DDL Generation
-- Collaboration
-- Cloud
-
-#### Properties
-
-- [Documentation](https://sqldbm.com/)
-- [Website](https://sqldbm.com/)
-- [Postman Collection](collections/relational-data-modeling.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/relational-data-modeling.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Hackolade Data Modeling
-
-Hackolade is a data modeling tool that supports both SQL and NoSQL databases, JSON schemas, and APIs. It enables schema design for MongoDB, Cassandra, DynamoDB, PostgreSQL, and other platforms through visual ER modeling.
-
-- **Human URL:** [https://hackolade.com/](https://hackolade.com/)
-
-#### Tags
-
-- NoSQL
-- SQL
-- JSON Schema
-- Schema Design
-- Multi-Database
-
-#### Properties
-
-- [Documentation](https://hackolade.com/)
-- [Website](https://hackolade.com/)
-- [Postman Collection](collections/relational-data-modeling.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/relational-data-modeling.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### ER/Studio Data Modeling
-
-ER/Studio is an enterprise-grade logical and physical data modeling platform with strong metadata management capabilities. It handles large, enterprise-scale data models and provides comprehensive data governance features.
-
-- **Human URL:** [https://erstudio.com/](https://erstudio.com/)
-
-#### Tags
-
-- Enterprise
-- Metadata Management
-- Physical Data Model
-- Logical Data Model
-- Data Governance
-
-#### Properties
-
-- [Documentation](https://erstudio.com/)
-- [Website](https://erstudio.com/)
-- [Postman Collection](collections/relational-data-modeling.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/relational-data-modeling.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### DbSchema Database Design
-
-DbSchema is a database design and management tool that provides a visual interface for creating and maintaining database schemas across both relational and NoSQL databases, with schema synchronization and query building features.
-
-- **Human URL:** [https://dbschema.com/](https://dbschema.com/)
-
-#### Tags
-
-- Visual Modeling
-- Schema Synchronization
-- Multi-Database
-- SQL
-
-#### Properties
-
-- [Documentation](https://dbschema.com/)
-- [Website](https://dbschema.com/)
-- [Postman Collection](collections/relational-data-modeling.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/relational-data-modeling.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Website](https://en.wikipedia.org/wiki/Relational_model)
-- [Reference](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)
-- [Reference](https://en.wikipedia.org/wiki/Database_normalization)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/relational-data-modeling/refs/heads/main/json-schema/relational-data-modeling-entity-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [J S O N L D Context](https://raw.githubusercontent.com/api-evangelist/relational-data-modeling/refs/heads/main/json-ld/relational-data-modeling-context.jsonld)
-- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/relational-data-modeling/refs/heads/main/vocabulary/relational-data-modeling-vocabulary.yml)
-
-## Maintainers
-
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/relational-data-modeling/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
